@@ -1,36 +1,40 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-primary">
-    <div class="container-fluid">
-        <h1 style="color:white">Angular CRUD</h1>
-        <div class="d-flex">
-            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
-             class="btn btn-success btn-sm">Add Employee</button>
-        </div> 
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-primary"> -->
+  <mat-toolbar class="title-toolbar">
+    <div class="container-fluid" fxLayout   fxLayoutGap="785px" fxLayoutAlign="right">
+        <pre class="mat-headline-6">Employee Management System</pre>
+        <!-- <div class="d-flex"> -->
+            <button type="button" mat-raised-button color="warn" data-bs-toggle="modal" 
+            data-bs-target="#exampleModal" (click)="clickAddEmployee()">
+              Add Employee</button>
+        <!-- </div>  -->
     </div> 
-</nav>
+  </mat-toolbar>
 
 <table class="table table-striped mt-3">
     <thead>
         <tr>
-        <th scope="col">Employee Id</th>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>        
-        <th scope="col">Email Id</th>
-        <th scope="col">Mobile No</th>        
-        <th scope="col">Salary</th>
-        <th scope="col">Action</th>
+        <th scope="col" class="mat-subtitle-2">Employee Id</th>
+        <th scope="col" class="mat-subtitle-2">First Name</th>
+        <th scope="col" class="mat-subtitle-2">Last Name</th>        
+        <th scope="col" class="mat-subtitle-2">Email Id</th>
+        <th scope="col" class="mat-subtitle-2">Mobile No</th>        
+        <th scope="col" class="mat-subtitle-2">Salary</th>
+        <th scope="col" class="mat-subtitle-2">Action</th>
      </tr>
     </thead>
     <tbody>
-        <tr>
-            <td scope="col">103</td>
-            <td scope="col">Shivani</td>
-            <td scope="col">Yadav</td>
-            <td scope="col">yshivand@gmail.com</td>
-            <td scope="col">9023897d50</td>
-            <td scope="col">40000</td>
+        <tr *ngFor="let row of employeeData">
+            <td scope="col" class="mat-body-1">{{row.id}}</td>
+            <td scope="col" class="mat-body-1">{{row.firstName}}</td>
+            <td scope="col" class="mat-body-1">{{row.lastName}}</td>
+            <td scope="col" class="mat-body-1">{{row.emailId}}</td>
+            <td scope="col" class="mat-body-1">{{row.mobileNo}}</td>
+            <td scope="col" class="mat-body-1">{{row.salary}}</td>
             <td scope="col">
-                <button class="btn btn-info">Edit</button>
-                <button class="btn btn-danger mx-2">Delete</button>
+                <button type="button" mat-raised-button color="accent" data-bs-dismiss="modal"
+                data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onEdit(row)">Edit</button>&nbsp;
+                <button type="button" mat-raised-button color="primary" data-bs-dismiss="modal" 
+                (click)="deleteEmp(row)">Delete</button>
             </td>
          
         </tr>
@@ -39,43 +43,60 @@
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" 
 aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog" style="width:400px">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Employee Details</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-    
+          <h2 class="modal-title" id="exampleModalLabel">Employee Details</h2>
+          <button type="button" class="btn-close" mat-icon-button data-bs-dismiss="modal" aria-label="Close">
+            <mat-icon>close</mat-icon>
           </button>
         </div>
         <div class="modal-body">
             <form [formGroup] = "formValue">
-                <div class="form-group mb-3" >
-                  <label for="firstName" class="form-label">First Name</label>
-                  <input type="text" formControlName="firstName" class="form-control" id="firstName">
+                <div class="form-group mb-2" >
+                  <mat-form-field apperance='outline' style="width: 360px;">
+                    <mat-label for="firstName">First Name</mat-label>
+                    <input type="text" matInput required
+                    formControlName="firstName"
+                    id="firstName" >
+                  </mat-form-field>
                 </div>
-                <div class="form-group mb-3" >
-                    <label for="lastName" class="form-label">Last Name</label>
-                    <input type="text" formControlName="lastName" class="form-control" id="lastName">
+                <div class="form-group mb-2" >
+                  <mat-form-field apperance='outline' style="width: 360px;">
+                    <mat-label for="lastName">Last Name</mat-label>
+                    <input type="text" matInput formControlName="lastName" required
+                    id="lastName">
+                  </mat-form-field>
                   </div>
-                  <div class="form-group mb-3" >
-                    <label for="emailId" class="form-label">Email Id</label>
-                    <input type="email" formControlName="emailId" class="form-control" id="emailId">
+                  <div class="form-group mb-2" >
+                    <mat-form-field apperance='outline' style="width: 360px;">
+                    <mat-label for="emailId">Email Id</mat-label>
+                    <input type="email" matInput formControlName="emailId" required
+                    id="emailId">
+                    </mat-form-field>
                   </div>
                  
-                  <div class="form-group mb-3" >
-                    <label for="mobileNo" class="form-label">Mobile Number</label>
-                    <input type="number" formControlName="mobileNo" class="form-control" id="mobileNo">
+                  <div class="form-group mb-2" >
+                    <mat-form-field apperance='outline' style="width: 360px;">
+                    <mat-label for="mobileNo">Mobile Number</mat-label>
+                    <input type="number" matInput formControlName="mobileNo" id="mobileNo" required>
+                     </mat-form-field>
                   </div>
-                  <div class="form-group mb-3" >
-                    <label for="salary" class="form-label">Salary</label>
-                    <input type="number" formControlName="salary" class="form-control" id="salary">
+                  <div class="form-group">
+                    <mat-form-field apperance='outline' style="width: 360px;">
+                    <mat-label for="salary" >Salary</mat-label>
+                    <input type="number" matInput formControlName="salary" id="salary" required>
+                    </mat-form-field>
                   </div>
+
               </form>
-        
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" (click)="postEmployeeDetails()">Add</button>
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+          <!-- <button type="button" class="btn btn-primary" (click)="postEmployeeDetails()">Add</button> -->
+          <button type="button" mat-raised-button color="accent" id="cancel" data-bs-dismiss="modal">Close</button>
+          <button type="button" mat-raised-button color="primary" *ngIf="showAdd" (click)="postEmployeeDetails()">Add</button>
+          <button type="button" mat-raised-button color="primary" *ngIf="showUpdate" (click)="updateEmployeeDetails()">update</button>
         </div>
       </div>
     </div>

@@ -1,60 +1,36 @@
 {
   "employees": [
     {
-      "id": 1,
-      "firstName": "Priya",
-      "lastName": "Sharma",
-      "emailId": "Priya@gmail.com",
-      "mobileNo": "9850564567",
-      "salary": "30000"
-    },
-    {
-      "id": 2,
-      "firstName": "neha",
-      "lastName": "dave",
-      "emailId": "neha@gmail.com",
-      "mobileNo": 9087989869,
-      "salary": 10000
-    },
-    {
-      "id": 3,
-      "firstName": "Vaishnavi",
-      "lastName": "Kachole",
-      "emailId": "vaishnavik2016@gmail.com",
-      "mobileNo": 9511254889,
+      "id": 23,
+      "firstName": "Revti",
+      "lastName": "Khodake",
+      "emailId": "revti.khodke@gmail.com",
+      "mobileNo": 9878904688,
       "salary": 30000
     },
     {
-      "id": 4,
+      "id": 24,
+      "firstName": "Neha",
+      "lastName": "Dave",
+      "emailId": "nehadave67@gmail.com",
+      "mobileNo": 9087989869,
+      "salary": 40000
+    },
+    {
+      "id": 25,
       "firstName": "Shivam",
       "lastName": "Dixit",
       "emailId": "shivam.dixit@gmail.com",
-      "mobileNo": 9087989869,
-      "salary": 10000
+      "mobileNo": 9989761234,
+      "salary": 12000
     },
     {
-      "id": 5,
-      "firstName": "Supriya",
-      "lastName": "Dixit",
-      "emailId": "shivam.dixit@gmail.com",
-      "mobileNo": 9087989869,
-      "salary": 20000
-    },
-    {
-      "id": 6,
-      "firstName": "Punam",
-      "lastName": "Mahalle",
-      "emailId": "punam@gmail.com",
-      "mobileNo": 908934,
-      "salary": 30000
-    },
-    {
-      "id": 7,
-      "firstName": "Tejal",
-      "lastName": "Walke",
-      "emailId": "tejal@gmail.com",
-      "mobileNo": 9289897390,
-      "salary": 20000
+      "id": 29,
+      "firstName": "Priya",
+      "lastName": "Sharma",
+      "emailId": "priya.sharma@gmail.com",
+      "mobileNo": 7658399001,
+      "salary": 43000
     }
   ]
 }
